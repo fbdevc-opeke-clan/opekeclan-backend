@@ -1,0 +1,25 @@
+{
+  "name": "opekeclan-backend",
+  "version": "1.0.0",
+  "description": "E-Voting app is an online enterprise voting platform that makes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbdevc-opeke-clan/opekeclan-backend.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "postgresql",
+    "jwt"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbdevc-opeke-clan/opekeclan-backend/issues"
+  },
+  "homepage": "https://github.com/fbdevc-opeke-clan/opekeclan-backend#readme"
+}
