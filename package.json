@@ -4,9 +4,14 @@
   "description": "E-Voting app is an online enterprise voting platform that makes",
   "main": "app.js",
   "scripts": {
+    "build": "npm run clean && npm run build-babel",
+    "build-babel": "babel ./backend -d build",
+    "clean": "rm -rf build .nyc_output coverage && mkdir build",
     "start:dev": "nodemon --exec babel-node ./Backend/app.js",
     "start": "npm run build && node ./build/app.js",
-    "test": "mocha --require @babel/register 'Backend/tests/*.js'"
+    "test": "mocha --require @babel/register 'Backend/tests/*.js'",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
     "type": "git",
@@ -31,6 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^7.1.1",
     "morgan": "^1.10.0",
+    "nyc": "^15.0.1",
     "pg": "^8.0.0",
     "sinon": "^9.0.2"
   },
