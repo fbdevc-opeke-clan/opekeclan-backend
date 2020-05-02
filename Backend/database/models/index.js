@@ -1,8 +1,8 @@
-/* eslint-disable no-undef */
-const users = require('./users');
-const politicalParty = require('./politicalParties');
-const politicalOffice = require('./politicalOffice');
-const candidate = require('./candidate');
+/* eslint-disable no-console */
+import users from './users';
+import politicalParty from './politicalParties';
+import politicalOffice from './politicalOffice';
+import candidate from './candidate';
 
 module.exports = async (client) => {
   try {
@@ -11,8 +11,8 @@ module.exports = async (client) => {
     await client.query(politicalParty.CREATE_TABLE);
     await client.query(candidate.CREATE_TABLE);
 
-    Console.log('Table Created');
+    console.log('Table Created');
   } catch (err) {
-    Console.log(err);
+    console.log(err);
   }
 };

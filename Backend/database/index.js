@@ -1,12 +1,22 @@
-const { Pool } = require('pg');
-const env = require('dotenv');
-const models = require('./models');
+/* eslint-disable no-console */
+import { Pool } from 'pg';
+import 'dotenv/config';
 
-env.config();
+import models from './models';
 
-const pool = new Pool({
-  connectionString: process.env.DB_URI_TEST,
-});
+let connect;
+
+if (process.env.NODE_ENV === 'test') {
+  connect = {
+    connectionString: process.env.DATABASE_TEST_URL,
+  };
+}
+
+connect = {
+  connectionString: process.env.DATABASE_DEV_URL,
+};
+
+const pool = new Pool(connect);
 
 const poolConnect = async () => {
   const client = await pool.connect();
@@ -16,6 +26,7 @@ const poolConnect = async () => {
     await client.query('COMMIT');
   } catch (err) {
     await client.query('ROLLBACK');
+    console.log(err);
   } finally {
     client.release();
   }
