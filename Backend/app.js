@@ -3,6 +3,7 @@ import express from 'express';
 import logger from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../swagger.json';
+import defaultRouter from './routes/default';
 
 
 const app = express();
@@ -17,14 +18,7 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
-
-app.use('*', (req, res) => res.status(404).send({
-  message: 'App not Found',
-}));
-
-app.use('/', (req, res) => res.status(200).send({
-  message: 'Welcome Opeke Backend App',
-}));
+app.use('/', defaultRouter);
 
 
 export default app.listen(port, () => console.log(`Server running on port ${port} 🔥`));
