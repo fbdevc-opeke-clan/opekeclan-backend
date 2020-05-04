@@ -1,5 +1,6 @@
 module.exports = {
-  CREATE_TABLE: `CREATE TABLE IF NOT EXISTS users(
+  CREATE_TABLE: `DROP TABLE IF EXISTS users CASCADE;
+  CREATE TABLE IF NOT EXISTS users(
         id serial PRIMARY KEY,
         firstname VARCHAR(150) NOT NULL,
         lastname VARCHAR(150) NOT NULL,

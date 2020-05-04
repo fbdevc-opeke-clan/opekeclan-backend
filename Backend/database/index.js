@@ -18,6 +18,10 @@ connect = {
 
 const pool = new Pool(connect);
 
+pool.on('connect', () => {
+  console.log(`successfully connected to ${process.env.NODE_ENV === 'test' ? 'test' : 'development'} database`);
+});
+
 const poolConnect = async () => {
   const client = await pool.connect();
   try {
