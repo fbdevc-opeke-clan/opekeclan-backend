@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon --exec babel-node ./Backend/app.js",
     "start": "npm run build && node ./build/app.js",
-    "test-cloudinary": "npm run cloudinary-test.js"
+    "test-cloudinary": "node cloudinary-test.js"
   },
   "repository": {
     "type": "git",
