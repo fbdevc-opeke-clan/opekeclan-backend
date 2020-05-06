@@ -2,7 +2,6 @@
 import express from 'express';
 import logger from 'morgan';
 import defaultRouter from './routes/default';
-import './database'
 
 const app = express();
 const port = process.env.PORT || 3000;
