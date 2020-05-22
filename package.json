@@ -9,6 +9,7 @@
     "clean": "rm -rf build .nyc_output coverage && mkdir build",
     "start:dev": "nodemon --exec babel-node ./Backend/app.js",
     "start": "npm run build && node ./build/app.js",
+    "test-cloudinary": "node cloudinary-test.js",
     "test": "cross-env NODE_ENV=test npm run migrate && cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha --no-lineout ./Backend/tests/*.js --require @babel/register --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/fbdevc-opeke-clan/opekeclan-backend#readme",
   "dependencies": {
+    "cloudinary": "^1.21.0",
     "chai": "^4.2.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
